@@ -1,12 +1,11 @@
 import java.util.ArrayList;
 
 public class Student extends Person {
-    private ArrayList<Integer> certificates=new ArrayList<>();
+    private ArrayList<Integer> certificates=new ArrayList<>(); //this is the collections of subject IDs that the student has obtained.
 
     //subclass constructor to initialise name, age, gender and certificates
-    Student(String name, String gender, int age, ArrayList<Integer> certificates) {
+    Student(String name, char gender, int age) {
         super(name, gender, age);
-        this.certificates=certificates;
     }
 
     //method that adds the ID of the subject tot the collections of certificates

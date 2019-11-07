@@ -4,7 +4,7 @@ public class Course {
     Subject subject;
     private int daysUntilStarts;
     private int daysToRun;
-    private Student enrolled[] = new Student[3];
+    private ArrayList<Student> enrolled = new ArrayList<>();
 
     Course(Subject sub, int days){
         this.subject=sub;
@@ -35,26 +35,37 @@ public class Course {
                 daysToRun--;
                 break;
             }
+            if(daysToRun==0){
+                for(Student student : enrolled){
+                    student.graduate(this.subject);
+                }
+            }
         }
     }
 
     boolean enrolStudent(Student student){
-        for (int i = 0; i < enrolled.length; i++)
-            enrolled[i] = student;
-
-        if(this.enrolled.length == 3){
+        if(this.enrolled.size() == 3){
             return false;
         }else if(daysUntilStarts<=0){
             return false;
         }else{
+            this.enrolled.add(student);
             return true;
         }
     }
 
     //getter method to return the number of students enrolled in the course
     int getSize(){
-        return this.enrolled.length;
+        return this.enrolled.size();
     }
+
+    //getter method that returns the Student[] array of students enrolled in the course
+    Student[] getStudents(){
+        Student[] Student = new Student[this.enrolled.size()];
+        Student=enrolled.toArray(Student);
+        return Student;
+    }
+
 
 
 }

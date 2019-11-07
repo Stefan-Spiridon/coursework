@@ -1,10 +1,10 @@
 public class Person {
     private String name;
-    private String gender;
+    private char gender;
     private int age;
 
     //constructor that initialisez name, gender, age
-    Person(String name, String gender, int age){
+    Person(String name, char gender, int age){
         this.name=name;
         this.gender=gender;
         this.age=age;
@@ -16,7 +16,7 @@ public class Person {
     }
 
     //getter methd that returns gender
-    String getGender(){
+    char getGender(){
         return gender;
     }
 
